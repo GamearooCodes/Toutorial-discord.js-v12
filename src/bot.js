@@ -32,11 +32,13 @@ bot.on("message", async (message) => {
   if (message.author.bot) return;
   const args = message.content.substring(prefix.length).split(" ");
 
+  bot.prefix = prefix;
+
   if (!message.content.startsWith(prefix)) return;
   switch (args[0]) {
-    case "hello":
+    case "help":
       //   message.reply("Hi");
-      bot.commands.get("hello").execute(message);
+      bot.commands.get("help").execute(bot, message, MessageEmbed);
       break;
     case "ping":
       bot.commands.get("ping").execute(bot, message, MessageEmbed);

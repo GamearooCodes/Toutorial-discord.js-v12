@@ -1,8 +1,12 @@
 module.exports = {
   name: "ping",
-  description: "Get bots ping and api ping",
+  desc: "Gets Api and Bots Ping",
+  category: "Information",
+  usage: "ping",
+  flag: "**None**",
   async execute(bot, message, MessageEmbed) {
     let botMsg = await message.channel.send("〽️ Pining");
+
     const embed = new MessageEmbed()
       .setAuthor(bot.user.tag, bot.user.avatarURL())
       .setThumbnail(bot.user.avatarURL())
@@ -15,7 +19,7 @@ module.exports = {
       .addField("API Ping", `🏓${Math.round(bot.ws.ping)}ms!🏓`)
       .setFooter(
         `Requested By: ${message.author.tag}`,
-        message.author.avatarURL({ dynamic: true })
+        message.author.avatarURL()
       )
       .setColor("RANDOM");
 
