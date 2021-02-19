@@ -4,4 +4,4 @@ exports.token = token;
 
 exports.prefix = "=";
 
-exports.version = "0.0.5";
+exports.version = "0.0.6";
