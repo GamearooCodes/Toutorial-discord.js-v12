@@ -5,7 +5,7 @@ module.exports = {
     "category name (Configuration, Information, Moderation, Miscellaneous) ",
   usage: "usage here",
   flag: "**None**",
-  async execute(passtouhs, here) {
+  async execute(bot, message, args, MessageEmbed) {
     //code here
   },
 };

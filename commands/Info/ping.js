@@ -4,7 +4,7 @@ module.exports = {
   category: "Information",
   usage: "ping",
   flag: "**None**",
-  async execute(bot, message, MessageEmbed) {
+  async execute(bot, message, args, MessageEmbed) {
     let botMsg = await message.channel.send("〽️ Pining");
 
     const embed = new MessageEmbed()

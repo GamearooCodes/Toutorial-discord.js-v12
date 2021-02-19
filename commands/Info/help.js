@@ -4,7 +4,7 @@ module.exports = {
   category: "Information",
   usage: "help",
   flag: "**Timed**",
-  async execute(bot, message, MessageEmbed) {
+  async execute(bot, message, args, MessageEmbed) {
     const embed = new MessageEmbed()
       .setFooter(
         `Requested By: ${message.author.tag}`,
@@ -40,9 +40,11 @@ module.exports = {
             .filter((cmd) => cmd.category === "Configuration")
             .map(
               (cmd) =>
-                `Command: **${bot.prefix + cmd.name}** Description: **${
+                `Command: **${bot.config.prefix + cmd.name}** Description: **${
                   cmd.desc
-                }** Usage: **${bot.prefix + cmd.usage}** Flags: ${cmd.flag}`
+                }** Usage: **${bot.config.prefix + cmd.usage}** Flags: ${
+                  cmd.flag
+                }`
             )
             .join("\n\n -");
 
@@ -56,9 +58,11 @@ module.exports = {
             .filter((cmd) => cmd.category === "Information")
             .map(
               (cmd) =>
-                `= Command: **${bot.prefix + cmd.name}** Description: **${
-                  cmd.desc
-                }** Usage: **${bot.prefix + cmd.usage}** Flags: ${cmd.flag}`
+                `= Command: **${
+                  bot.config.prefix + cmd.name
+                }** Description: **${cmd.desc}** Usage: **${
+                  bot.config.prefix + cmd.usage
+                }** Flags: ${cmd.flag}`
             )
             .join("\n\n");
 
@@ -72,9 +76,11 @@ module.exports = {
             .filter((cmd) => cmd.category === "Moderation")
             .map(
               (cmd) =>
-                `= Command: **${bot.prefix + cmd.name}** Description: **${
-                  cmd.desc
-                }** Usage: **${bot.prefix + cmd.usage}** Flags: ${cmd.flag}`
+                `= Command: **${
+                  bot.config.prefix + cmd.name
+                }** Description: **${cmd.desc}** Usage: **${
+                  bot.config.prefix + cmd.usage
+                }** Flags: ${cmd.flag}`
             )
             .join("\n\n");
 
@@ -88,9 +94,11 @@ module.exports = {
             .filter((cmd) => cmd.category === "Miscellaneous")
             .map(
               (cmd) =>
-                `= Command: **${bot.prefix + cmd.name}** Description: **${
-                  cmd.desc
-                }** Usage: **${bot.prefix + cmd.usage}** Flags: ${cmd.flag}`
+                `= Command: **${
+                  bot.config.prefix + cmd.name
+                }** Description: **${cmd.desc}** Usage: **${
+                  bot.config.prefix + cmd.usage
+                }** Flags: ${cmd.flag}`
             )
             .join("\n\n");
 
