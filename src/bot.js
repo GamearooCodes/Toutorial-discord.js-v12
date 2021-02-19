@@ -20,6 +20,19 @@ bot.login(token);
 
 bot.on("ready", async () => {
   console.log(`Bot: ${bot.user.tag} is Ready!`);
+  bot.user.setPresence({ activity: { name: `${prefix}help | ${version}` } });
+  setInterval(() => {
+    const activity_list = [
+      `${prefix}help`,
+      `${prefix}help`,
+      `${prefix}help | ${version}`,
+      `Version: ${version}`,
+      `Servers: ${bot.guilds.cache.size.toLocaleString().replace(/,/g, ",")}`,
+      `Users: ${bot.users.cache.size.toLocaleString().replace(/,/g, ",")}`,
+    ];
+    const index = Math.floor(Math.random() * (activity_list.length - 1) + 1);
+    bot.user.setPresence({ activity: { name: `${activity_list[index]}` } });
+  }, 75000);
 });
 
 bot.on("message", async (message) => {
