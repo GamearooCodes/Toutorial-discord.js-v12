@@ -38,5 +38,8 @@ bot.on("message", async (message) => {
       //   message.reply("Hi");
       bot.commands.get("hello").execute(message);
       break;
+    case "ping":
+      bot.commands.get("ping").execute(bot, message, MessageEmbed);
+      break;
   }
 });
